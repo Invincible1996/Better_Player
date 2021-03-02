@@ -32,7 +32,7 @@ class _NormalPlayerPageState extends State<NormalPlayerPage> {
             ));
     BetterPlayerDataSource dataSource = BetterPlayerDataSource(
       BetterPlayerDataSourceType.network,
-      "https://va-videos.oss-cn-hangzhou.aliyuncs.com/video-record/local/default/1-%E6%95%B0%E6%8D%AE%E6%94%B6%E9%9B%86-6c5cc740-772f-11eb-9157-d1c1a15411e5/index.m3u8",
+      "https://va-videos.oss-cn-hangzhou.aliyuncs.com/video-record/local/default/3-%E4%BF%A1%E6%81%AF%E7%B4%A0%E8%B4%A8-6c927d40-772f-11eb-9157-d1c1a15411e5/index.m3u8",
     );
     _betterPlayerController = BetterPlayerController(betterPlayerConfiguration);
     _betterPlayerController.setupDataSource(dataSource);
@@ -41,6 +41,7 @@ class _NormalPlayerPageState extends State<NormalPlayerPage> {
         _endTime = DateTime.now().microsecond;
         debugPrint('33---normal_player_page-----初始化完成');
         debugPrint('34---normal_player_page-----${(_endTime - _startTime)}');
+        _betterPlayerController.seekTo(Duration(seconds: 30));
       }
     });
     // _betterPlayerController.addListener(() {

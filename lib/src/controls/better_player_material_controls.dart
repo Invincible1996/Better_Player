@@ -339,6 +339,7 @@ class _BetterPlayerMaterialControlsState
                   ? _controlsConfiguration.fullscreenDisableIcon
                   : _controlsConfiguration.fullscreenEnableIcon,
               color: _controlsConfiguration.iconsColor,
+              size: 20,
             ),
           ),
         ),
@@ -536,6 +537,7 @@ class _BetterPlayerMaterialControlsState
               ? _controlsConfiguration.pauseIcon
               : _controlsConfiguration.playIcon,
           color: _controlsConfiguration.iconsColor,
+          size: 20,
         ),
       ),
     );
@@ -546,13 +548,14 @@ class _BetterPlayerMaterialControlsState
     final duration = _latestValue != null && _latestValue.duration != null ? _latestValue.duration : Duration.zero;
 
     return Container(
+      // color: Colors.red,
       // padding: const EdgeInsets.only(right: 24),
-      width: 130,
+      width: 100,
       child: Text(
         '${BetterPlayerUtils.formatDuration(position)} / ${BetterPlayerUtils.formatDuration(duration)}',
         textAlign: TextAlign.center,
         style: TextStyle(
-          fontSize: 13,
+          fontSize: 11,
           color: _controlsConfiguration.textColor,
           decoration: TextDecoration.none,
         ),
@@ -666,7 +669,7 @@ class _BetterPlayerMaterialControlsState
   Widget _buildProgressBar() {
     return Expanded(
       child: Padding(
-        padding: const EdgeInsets.only(right: 20),
+        padding: const EdgeInsets.only(right: 10),
         child: BetterPlayerMaterialVideoProgressBar(
           _controller,
           _betterPlayerController,
