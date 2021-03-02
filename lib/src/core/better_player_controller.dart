@@ -253,6 +253,7 @@ class BetterPlayerController extends ChangeNotifier {
 
     ///Process data source
     await _setupDataSource(betterPlayerDataSource);
+    notifyListeners();
     setTrack(BetterPlayerHlsTrack.defaultTrack());
   }
 
