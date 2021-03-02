@@ -1,0 +1,33 @@
+name: better_player_example
+description: Better Player example usage app.
+version: 1.0.0+1
+publish_to: none
+
+environment:
+  sdk: ">=2.2.2 <3.0.0"
+
+dependencies:
+  #better_player: any
+  better_player:
+    path: ../
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  path_provider: ^1.6.5
+  flutter_widgets: ^0.1.12
+  orientation: ^1.2.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+
+flutter:
+  assets:
+    - assets/
+  uses-material-design: true
+  fonts:
+    - family: CommonIcons
+      fonts:
+        - asset: assets/iconfont.ttf
