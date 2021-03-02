@@ -284,12 +284,12 @@ class _BetterPlayerVideoFitWidgetState
           });
         }
       }
-      if (event.betterPlayerEventType ==
-          BetterPlayerEventType.setupDataSource) {
-        setState(() {
-          _started = false;
-        });
-      }
+      // if (event.betterPlayerEventType ==
+      //     BetterPlayerEventType.setupDataSource) {
+      //   setState(() {
+      //     _started = false;
+      //   });
+      // }
     });
   }
 
