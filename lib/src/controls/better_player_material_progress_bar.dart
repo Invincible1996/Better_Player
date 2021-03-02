@@ -112,11 +112,10 @@ class _VideoProgressBarState
         if (!enableProgressBarDrag) {
           return;
         }
-
-        if (_controllerWasPlaying) {
+        //拖动前为播放状态以及当前播放状态为未完成时才播放
+        if (_controllerWasPlaying && controller.value.position < controller.value.duration) {
           controller.play();
         }
-
         if (widget.onDragEnd != null) {
           widget.onDragEnd();
         }
