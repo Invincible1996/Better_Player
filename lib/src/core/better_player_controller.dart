@@ -522,6 +522,7 @@ class BetterPlayerController extends ChangeNotifier {
 
   ///Move player to specific position/moment of the video.
   Future<void> seekTo(Duration moment) async {
+    if (!isVideoInitialized() || videoPlayerController == null) return;
     await videoPlayerController?.seekTo(moment);
 
     _postEvent(BetterPlayerEvent(BetterPlayerEventType.seekTo,

@@ -200,7 +200,11 @@ class _BetterPlayerMaterialControlsState
                     color: Colors.white,
                   ),
                   onPressed: () {
-                    Navigator.of(context).pop();
+                    if (_betterPlayerController.isFullScreen){
+                      _betterPlayerController.exitFullScreen();
+                    }else{
+                      Navigator.of(context).pop();
+                    }
                   },
                 ),
                 // _buildMoreButton(),
