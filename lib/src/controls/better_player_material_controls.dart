@@ -65,12 +65,12 @@ class _BetterPlayerMaterialControlsState
   @override
   Widget build(BuildContext context) {
     _wasLoading = isLoading(_latestValue);
-    if (_latestValue?.hasError == true) {
-      return Container(
-        color: Colors.black,
-        child: _buildErrorWidget(),
-      );
-    }
+    // if (_latestValue?.hasError == true) {
+    //   return Container(
+    //     color: Colors.black,
+    //     child: _buildErrorWidget(),
+    //   );
+    // }
     return MouseRegion(
       onHover: (_) {
         cancelAndRestartTimer();
