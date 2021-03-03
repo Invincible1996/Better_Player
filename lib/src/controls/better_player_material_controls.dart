@@ -550,7 +550,7 @@ class _BetterPlayerMaterialControlsState
     return Container(
       // color: Colors.red,
       // padding: const EdgeInsets.only(right: 24),
-      width: 100,
+      width: 110,
       child: Text(
         '${BetterPlayerUtils.formatDuration(position)} / ${BetterPlayerUtils.formatDuration(duration)}',
         textAlign: TextAlign.center,
