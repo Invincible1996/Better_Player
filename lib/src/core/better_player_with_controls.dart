@@ -16,8 +16,8 @@ import 'package:flutter/material.dart';
 
 class BetterPlayerWithControls extends StatefulWidget {
   final BetterPlayerController controller;
-
-  const BetterPlayerWithControls({Key key, this.controller}) : super(key: key);
+  final Function onScreenOrientationChange;
+  const BetterPlayerWithControls({Key key, this.controller, this.onScreenOrientationChange}) : super(key: key);
 
   @override
   _BetterPlayerWithControlsState createState() =>
@@ -187,6 +187,7 @@ class _BetterPlayerWithControlsState extends State<BetterPlayerWithControls> {
     return BetterPlayerMaterialControls(
       onControlsVisibilityChanged: onControlsVisibilityChanged,
       controlsConfiguration: controlsConfiguration,
+      onScreenOrientationChange: widget.onScreenOrientationChange,
     );
   }
 

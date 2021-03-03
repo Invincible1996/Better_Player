@@ -18,7 +18,8 @@ import 'better_player_controller_provider.dart';
 class BetterPlayer extends StatefulWidget {
   const BetterPlayer({
     Key key,
-    @required this.controller
+    @required this.controller,
+    this.onScreenOrientationChange,
   })  : assert(
             controller != null, 'You must provide a better player controller'),
         super(key: key);
@@ -48,6 +49,7 @@ class BetterPlayer extends StatefulWidget {
       );
 
   final BetterPlayerController controller;
+  final Function(bool isFullScreen) onScreenOrientationChange;
 
   @override
   _BetterPlayerState createState() {
@@ -136,10 +138,12 @@ class _BetterPlayerState extends State<BetterPlayer>
       _isFullScreen = true;
       controller
           .postEvent(BetterPlayerEvent(BetterPlayerEventType.openFullscreen));
+      widget.onScreenOrientationChange?.call(_isFullScreen);
       await _pushFullScreenWidget(context);
     } else if (_isFullScreen && !controller.cancelFullScreenDismiss) {
       Navigator.of(context, rootNavigator: true).pop();
       _isFullScreen = false;
+      widget.onScreenOrientationChange?.call(_isFullScreen);
       controller
           .postEvent(BetterPlayerEvent(BetterPlayerEventType.hideFullscreen));
     }
@@ -268,6 +272,7 @@ class _BetterPlayerState extends State<BetterPlayer>
           widget.controller.onPlayerVisibilityChanged(info.visibleFraction),
       child: BetterPlayerWithControls(
         controller: widget.controller,
+        onScreenOrientationChange: widget.onScreenOrientationChange,
       ),
     );
   }

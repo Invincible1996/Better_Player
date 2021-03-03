@@ -22,11 +22,13 @@ class BetterPlayerMaterialControls extends StatefulWidget {
 
   ///Controls config
   final BetterPlayerControlsConfiguration controlsConfiguration;
+  final Function(bool isFullScreen) onScreenOrientationChange;
 
   const BetterPlayerMaterialControls({
     Key key,
     @required this.onControlsVisibilityChanged,
     @required this.controlsConfiguration,
+    this.onScreenOrientationChange,
   })  : assert(onControlsVisibilityChanged != null),
         assert(controlsConfiguration != null),
         super(key: key);
@@ -205,6 +207,7 @@ class _BetterPlayerMaterialControlsState
                     }else{
                       Navigator.of(context).pop();
                     }
+                    widget.onScreenOrientationChange?.call(false);
                   },
                 ),
                 // _buildMoreButton(),
