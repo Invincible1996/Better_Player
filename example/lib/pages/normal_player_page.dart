@@ -1,7 +1,10 @@
+import 'dart:io';
+
 import 'package:better_player/better_player.dart';
 import 'package:better_player_example/constants.dart';
 import 'package:better_player_example/utils.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import '../common_icons.dart';
 
@@ -20,16 +23,25 @@ class _NormalPlayerPageState extends State<NormalPlayerPage> {
     _startTime = DateTime.now().microsecond;
     BetterPlayerConfiguration betterPlayerConfiguration =
         BetterPlayerConfiguration(
-            aspectRatio: 16 / 9,
-            autoPlay: true,
-            fit: BoxFit.contain,
-            controlsConfiguration: BetterPlayerControlsConfiguration(
-              enableMute: false,
-              enableProgressText: true,
-              pauseIcon: CommonIcons.icon_video_play,
-              playIcon: CommonIcons.icon_video_pause,
-              fullscreenEnableIcon: CommonIcons.icon_video_full_screen,
-            ));
+          placeholderOnTop: false,
+          autoPlay: false,
+          allowedScreenSleep: false,
+          handleLifecycle: false,
+          deviceOrientationsOnFullScreen: Platform.isAndroid
+              ? [DeviceOrientation.landscapeLeft]
+              : [DeviceOrientation.landscapeLeft, DeviceOrientation.landscapeRight],
+          autoDetectFullscreenDeviceOrientation: false,
+          deviceOrientationsAfterFullScreen: [DeviceOrientation.portraitUp],
+          controlsConfiguration: BetterPlayerControlsConfiguration(
+            progressBarHandleColor: Colors.white,
+            enableMute: false,
+            pauseIcon: CommonIcons.icon_video_play,
+            playIcon: CommonIcons.icon_video_pause,
+            fullscreenEnableIcon: CommonIcons.icon_video_full_screen,
+            enableProgressText: true,
+            enableSkips: false,
+          ),
+        );
     BetterPlayerDataSource dataSource = BetterPlayerDataSource(
       BetterPlayerDataSourceType.network,
       "https://va-videos.oss-cn-hangzhou.aliyuncs.com/video-record/local/default/3-%E4%BF%A1%E6%81%AF%E7%B4%A0%E8%B4%A8-6c927d40-772f-11eb-9157-d1c1a15411e5/index.m3u8",

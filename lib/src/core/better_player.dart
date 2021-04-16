@@ -58,7 +58,7 @@ class BetterPlayer extends StatefulWidget {
 }
 
 class _BetterPlayerState extends State<BetterPlayer>
-    with WidgetsBindingObserver {
+    {
   BetterPlayerConfiguration get _betterPlayerConfiguration =>
       widget.controller.betterPlayerConfiguration;
 
@@ -73,7 +73,7 @@ class _BetterPlayerState extends State<BetterPlayer>
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance.addObserver(this);
+    // WidgetsBinding.instance.addObserver(this);
     Future.delayed(Duration.zero, () {
       _setup();
     });
@@ -117,7 +117,7 @@ class _BetterPlayerState extends State<BetterPlayer>
           _betterPlayerConfiguration.deviceOrientationsAfterFullScreen);
     }
 
-    WidgetsBinding.instance.removeObserver(this);
+    // WidgetsBinding.instance.removeObserver(this);
     widget.controller.removeListener(onFullScreenChanged);
     widget.controller.dispose();
     super.dispose();
@@ -277,11 +277,11 @@ class _BetterPlayerState extends State<BetterPlayer>
     );
   }
 
-  @override
-  void didChangeAppLifecycleState(AppLifecycleState state) {
-    super.didChangeAppLifecycleState(state);
-    widget.controller.setAppLifecycleState(state);
-  }
+  // @override
+  // void didChangeAppLifecycleState(AppLifecycleState state) {
+  //   super.didChangeAppLifecycleState(state);
+  //   widget.controller.setAppLifecycleState(state);
+  // }
 }
 
 ///Page route builder used in fullscreen mode.
