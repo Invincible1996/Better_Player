@@ -210,7 +210,7 @@ class _BetterPlayerMaterialControlsState
                     widget.onScreenOrientationChange?.call(false);
                   },
                 ),
-                // _buildMoreButton(),
+                _buildMoreButton(),
               ],
             ),
           ),
